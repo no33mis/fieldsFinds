@@ -1,0 +1,43 @@
+body {
+  font-family: Arial;
+  color:white;
+}
+
+/* design more table characteristics */
+.extra {
+  cursor:pointer;
+  height:10px
+}
+/* design the background color for the table header */
+.head {
+  background-color:#778899;
+}
+
+/* design the background color for the table border */
+td {
+  height:20px;
+  border-bottom:1px solid #778899;
+}
+
+/* design the action buttons */
+.smallButton {
+  background-color:#333;
+  color: #ddd;
+  border: 2px solid #ddd;
+  padding: 3px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width:80px
+}
+
+/* design the hover effects for the action buttons */
+.smallButton:hover {
+  -webkit-transition-duration: 0.4s;
+  transition-duration:0.4s;
+  background-color: #ddd;
+  color: #333;
+}

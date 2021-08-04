@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+<!-- import the JS for the hide/show buttons -->
+<script type="text/javascript" src="/static/js/map_buttons.js"></script>
+<!-- import the repository for jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!-- import the JS for the info modals -->
+<SCRIPT SRC="/static/js/map_info.js"></SCRIPT>
+<!-- import the stylesheet for the map -->
+<link rel="stylesheet" type="text/css" href="/static/css/map.css" />
+<!-- import the Google JavaScript loader API for jQuery  -->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+<!-- create an SVG and set size and boundaries -->
+<svg width="13cm" height="13cm" viewBox="-1.3 -1.3 18.7 18.7">
+
+<!-- draw bounding rectangles -->
+<rect x="-1.3" y="-1.3" width="18.7" height="18.7" fill="#778899" />
+<rect x="0" y="0" width="16" height="16" fill="#E3EAF0" stroke="black" stroke-width="0.05" />
+
+<!-- draw the coordinate labels -->
+<text x="-0.8" y="8.2" font-family="Arial Black" font-size="0.6" fill="black">y</text>
+<text x="7.8" y="16.9" font-family="Arial Black" font-size="0.6" fill="black">x</text>
+
+<!-- passing the arguments for the grid to "map.py" -->
+
+{{grid|safe}}
+
+<!-- passing the arguments for the rectangles to "map.py", assign the ID for the show/hide buttons and classes for info modals and hover -->
+
+<g id="hideRect">
+{{rect|safe}}
+</g>
+
+<!-- passing the arguments for the field IDs to "map.py" and assign the ID for the show/hide buttons and CSS classes for hide text  -->
+
+<g id="hideRectText">
+{{text|safe}}
+</g>
+<!-- passing the arguments for the circles and circle IDs to "map.py", assign the IDs for the show/hide buttons and classes for
+info modals, hover and hide text -->
+
+<g id="hideFind">
+{{circle|safe}}
+</g>
+
+<!-- draw a compass and assign the ID for the show/hide button -->
+<g id="hideComp">
+<circle cx="15.5" cy="1.4" r="1.1" fill="black" stroke="black" stroke-width="0.05" />
+<polyline points="15 2, 15.5 1, 16 2, 15.5 1.7, 15 2" fill="#E3EAF0" />
+<text x="15.3" y="0.9" font-family="Arial Black" font-size="0.5" fill="#E3EAF0">N</text>
+</g>
+
+<!-- passing the arguments for the info boxes to "map.py", assign the IDs and classes for the
+info modals -->
+{{infoRect|safe}}
+{{infoCircle|safe}}
+
+<!-- call the JS function to create a button to hide/show the fields and define the forms -->
+<br>
+<br>
+<h4>Display Map Features</h4>
+<p> Use the buttons to hide/show map features.<br>
+<div id="myButtons">
+<button class="button" onclick="hideRect()">Fields</button>
+<button class="button" onclick="hideFind()">Finds</button>
+<button class="button" onclick="hideComp()">Compass</button>
+<div class="slidecontainer">
+<h4>Select Field Area</h4>
+<p> Use the range slider to display the fields larger than the selected <br> value. Press the button again to reset the selection. </p>
+<form action="/map/filter" method="post">
+  0 <input name="AreaRange" type="range" min="0" max="4" step="0.1" width="100" value="0" class="slider" onchange="show_value_area(this.value)";> 4
+<br>Value (ha): <span id="slider_value1" style="color:white;"></span><br><br>
+  <input class="smallButton" type="submit" value="Go!">
+</form>
+  <h4>Select Find Depth</h4>
+  <p> Use the range slider to display the finds deeper than the selected <br> value. Press the button again to reset the selection. </p>
+<form action="/map/filter" method="post">
+  0 <input name="FindDepth" type="range" min="0" max="1.5" step="0.05" width="100" value="0" class="slider" onchange="show_value_depth(this.value)";> 1.5
+<br>Value (meters): <span id="slider_value2" style="color:white;"></span><br><br>
+  <input class="smallButton" type="submit" value="Go!">
+</form>
+  <form action="/map" method="get">
+     <input class="smallButton" type="submit" value="Reset all">
+</form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- import the stylesheet and set title -->
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <title>Fields and Finds 2020</title>
+</head>
+<body>
+  <!-- set a link mark -->
+  <a name="top"></a>
+<div class="content">
+
+<!-- define the header with title and subtitle -->
+<div class="header">
+  <h1>Fields and Finds</h1>
+  <p>A Web Interface</p>
+</div>
+
+<!-- define the subheader with an introduction -->
+<div class="subheader">
+  <h4>Dear Explorer, welcome to the Fields and Finds Adventure.</h4>
+    <p>Several archaeological objects have been found in agricultural fields near Edinburgh, Scotland. To ensure proper managing and maintaining
+      of the valuable discoveries within different farmers land, a relational database has been set up. Additionally, a web interface providing the information
+      from the database has been developed, in which our users can explore the different fields and finds. This interface provides both spatial (locational)
+      and aspatial (other information) aspects.<br><br>
+      And now it is your turn. Use the map, tables and several tabs and buttons to learn more about the environment. As changes may be made within the existing database,
+      the maps and tables will automatically update to reflect the changes.<br><br>
+      Technical requirements: A display resolution width of at least 1280px, lower display resolutions will result in overlay and distortion. Best experience in Google Chrome.
+      </p>
+</div>
+
+<!-- define the link tab and set the link targets -->
+<div class="links">
+  <a class="linkbutton" href="#map">Straight to the Map and Tables</a>
+  <a class="linkbutton" href="#legend">Straight to the Legend and Queries</a>
+</div>
+
+<!-- define the map section and set the link target -->
+<div class="row">
+  <a name="map"></a>
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>The Map</h2>
+      <p> Click on the Fields and Finds to learn more. </p>
+      <!-- import the "map.py" file and all its characteristics with the help of iframe -->
+          <iframe src="/Library/WebServer/CGI-Executables/map.py" height="1200" width="600" scrolling="no" frameBorder="0"> </iframe>
+    </div>
+  </div>
+<!-- define the top right column containing the fields table -->
+  <div class="rightcolumn">
+    <div class="card">
+      <h3>Fields Table</h3>
+      <p>Click on the headers to sort the table (where applicable), or tick the checkboxes to display the elements according to the crop type. Press the button again to reset the selection.</p>
+      <!-- import the "fields.py" file and its characteristics using iframe and connection to cgi-bin -->
+      <iframe src="http://localhost/cgi-bin/fields.py" height="280" width="800" margin-left="50" scrolling="no" frameBorder="0"> </iframe>
+    </div>
+  </div>
+<!-- define the mid right column containing the finds table -->
+  <div class="rightcolumn">
+    <div class="card">
+      <h3>Finds Table</h3>
+      <p>Click on the headers to sort the table (where applicable), or tick the checkboxes to display the elements according to the find period. Press the button again to reset the selection.</p>
+      <!-- import the "finds.py" file and its characteristics using iframe and connection to cgi-bin -->
+      <iframe src="https://www.geos.ed.ac.uk/~s1853686/cgi-bin/finds.py" height="280" width="800" scrolling="no" frameBorder="0"> </iframe>
+    </div>
+  </div>
+  <div class="midcolumnLeft">
+    <a name="legend"></a>
+    <!-- define the bottom left column containing the map legend -->
+    <div class="card">
+      <h3>Map Legend</h3>
+      <!-- import the "map_legend.html" file -->
+      <iframe src="map_legend.html"height="250" width="350" frameBorder="0"> </iframe>
+    </div>
+  </div>
+  <div class="midcolumnRight">
+    <!-- define the bottom right column containing the map legend -->
+    <div class="card">
+      <h3>Queries</h3>
+    <!-- import the "queries.py" file and its characteristics using iframe and connection to cgi-bin -->
+        <iframe src="https://www.geos.ed.ac.uk/~s1853686/cgi-bin/queries.py" height="470" width="350" scrolling="no" frameBorder="0"> </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- define the bottom link bar -->
+<div class="linksbottom">
+  <a class="linkbutton" href="#top">Back to the top</a>
+</div>
+
+<!-- define the footer -->
+<div class="footer">
+  <p>Site Design © 2020 Fields and Finds</br>
+      Exam Number B139732 </br>
+      The University of Edinburgh | School of GeoSciences</p>
+</div>
+</div>
+
+</body>
+</html>

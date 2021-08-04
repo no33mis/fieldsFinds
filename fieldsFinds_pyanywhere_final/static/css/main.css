@@ -1,0 +1,166 @@
+* {
+  box-sizing: border-box;
+}
+
+/* define standard body properties */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #DCDCDC;
+}
+
+.content {
+  max-width: 1280px;
+  margin: auto;
+}
+
+/* design the header/subheaders */
+.header {
+  padding: 10px;
+  text-align: center;
+  background: #333;
+  color: white;
+}
+/* set header size */
+.header h1 {
+  font-size: 40px;
+
+}
+.subheader {
+  padding: 5px;
+  text-align:justify;
+}
+
+/* design the navigation bar containing the links */
+.links {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* design the bottom link bar */
+.linksbottom {
+  overflow: hidden;
+  margin-top:20px;
+  background-color: #333;
+}
+
+/* design the link buttons */
+.linkbutton {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* design hover over link buttons */
+.linkbutton:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* design the non link text within the link bar */
+.linktext {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* design the top left column containing the map */
+.leftcolumn {
+  float: left;
+  width: 41%;
+}
+
+/* design the low mid column containing the map legend */
+.midcolumnLeft {
+  float: left;
+  width: 395px;
+  background-color: #DCDCDC;
+  padding-left: 20px;
+}
+
+/* design the bottom right column containing the queries */
+.midcolumnRight {
+  float: left;
+  width: 360px;
+  background-color: #DCDCDC;
+  padding-left: 20px;
+}
+
+/* design the right columns containing the tables */
+.rightcolumn {
+  float: left;
+  width: 59%;
+  background-color: #DCDCDC;
+  padding-left: 20px;
+}
+
+/* Add a card effect with a pretty background */
+.card {
+  background-color: #333;
+  padding: 10px;
+  margin-top: 20px;
+  color:#fff;
+}
+
+/* clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* design the footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+/* design the show/hide buttons */
+.button {
+  background-color:#333;
+  color: #ddd;
+  border: 2px solid #ddd;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin:4px 2px;
+  cursor: pointer;
+  width: 260px;
+  margin-left: 43px;
+
+}
+
+/* design the hover effect for the show/hide buttons */
+.button:hover {
+  -webkit-transition-duration: 0.4s;
+  transition-duration:0.4s;
+  background-color: #ddd;
+  color: #333;
+}
+
+/* responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}

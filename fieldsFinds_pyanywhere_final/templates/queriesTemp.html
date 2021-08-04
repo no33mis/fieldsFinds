@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- link to the CSS file -->
+<link rel="stylesheet" type="text/css" href="/static/css/queries.css" />
+</head>
+
+<body>
+<!-- create a table, assign it to classes and set characteristics -->
+<table class='extra' style='width:92%;border:5px solid #778899;background-color:#E3EAF0; font-family:Helvetica;font-size:10px;text-align:left;color:black;border-collapse:collapse;'>
+
+<!-- create a drop down form in which users can chose the field number, and send the inputs to the "queries.py" file -->
+<p> Pick a field to explore which finds lie within<br>or on the border. </p>
+<form action="/queries/filter" method="post">
+  <select class="smallButton" name="finds" value="Field">
+    <option disabled selected value="">Field</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+  </select>
+  <input class="smallButton" type="submit" value="Go!">
+</form>
+<form action="/queries" method="get">
+   <input class="smallButton" type="submit" value="Reset">
+</form>
+
+<!-- define the table column headers -->
+<tr class="head">
+<th>Field</th>
+<th>Find</th>
+<th>Find Type</th>
+<th>Period</th>
+<th>Use</th>
+</tr>
+
+<!-- pass the variable to the "queries.py" template and output the requested table elements -->
+{{queryFinds|safe}}
+
+</table>
+<!-- create a table, assign it to classes and set characteristics -->
+<table id="sort" class='extra' style='width:92%;border:5px solid #778899;background-color:#E3EAF0; font-family:Helvetica;font-size:10px;text-align:left;color:black;border-collapse:collapse;'>
+<!-- create a drop down form in which users can chose the field number, and send the inputs to the "queries.py" file -->
+<br><p> Pick a farmer to reveal the total area of<br>her/his fields. </p>
+<form action="/queries/filter" method="post">
+  <select class="smallButton" name="farmer" value="Farmer">
+    <option disabled selected value="">Farmer</option>
+    <option value="BLACK">Farmer Black</option>
+    <option value="BROWN">Farmer Brown</option>
+    <option value="GREEN">Farmer Green</option>
+    <option value="WHITE">Farmer White</option>
+  </select>
+  <input class="smallButton" type="submit" value="Go!">
+</form>
+<form action="/queries" method="get">
+   <input class="smallButton" type="submit" value="Reset">
+</form>
+
+<!-- define the table column headers -->
+<tr class="head">
+<th>Farmer Name</th>
+<th>Total Field Area [ha]</th>
+</tr>
+
+{{queryFarmer|safe}}
+
+</table>
+<!-- create a table, assign it to classes and set characteristics -->
+<table id="sort" class='extra' style='width:92%;border:5px solid #778899;background-color:#E3EAF0; font-family:Helvetica;font-size:10px;text-align:left;color:black;border-collapse:collapse;'>
+<!-- create a drop down form in which users can chose the field number, and send the inputs to the "queries.py" file -->
+<br><p> Pick a find type to reveal its average depth.</p>
+<form action="/queries/filter" method="post">
+  <select class="smallButton" name="type" value="Find Type">
+    <option disabled selected value="">Find Type</option>
+    <option value="BONE">Bone</option>
+    <option value="FLINT">Flint</option>
+    <option value="METAL_WORK">Metal Work</option>
+    <option value="SHARD">Shard</option>
+  </select>
+  <input class="smallButton" type="submit" value="Go!">
+</form>
+<form action="/queries" method="get">
+   <input class="smallButton" type="submit" value="Reset">
+</form>
+
+<!-- define the table column headers -->
+<tr class="head">
+<th>Find Type</th>
+<th>Average Depth [m]</th>
+</tr>
+<!-- pass the variable to the "queries.py" template and output the requested table elements -->
+{{queryType|safe}}
+
+</table>
+
+<!-- define inline CSS classes -->
+<style> .extra{cursor:pointer;} .head {background-color:#778899;} td {height:15px;border-bottom:1px solid #778899;} </style>
+
+</body>
+</html>

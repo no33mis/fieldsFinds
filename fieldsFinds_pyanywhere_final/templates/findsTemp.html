@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- link to the JS file for sorting the tables -->
+<script type="text/javascript" src="/static/js/sort_table.js"></script>
+<!-- import the stylesheet for the table -->
+<link rel="stylesheet" type="text/css" href="/static/css/tables.css" />
+</head>
+
+<body>
+<!-- create a table, assign it to the ID, classes and set characteristics -->
+<table id="sort" class='extra' style='width:89%;border:5px solid #778899;background-color:#E3EAF0; font-family:Helvetica;font-size:10px;text-align:left;color:black;border-collapse:collapse;'>
+
+<!-- define the table column headers -->
+<tr class="head">
+<th onclick="sortTable(0)">Find ID</th>
+<th onclick="sortTable(1)">Find Type</th>
+<th onclick="sortTable(2)" >Period</th>
+<th onclick="sortTable(3)" >Use</th>
+<th>Find Coordinates</br>(X - Y)</th>
+<th onclick="sortTable(5)">Depth [m]</th>
+<th onclick="sortTable(6)">Field Notes</th>
+</tr>
+
+<!-- pass the variable to the "finds.py" template -->
+{{finds|safe}}
+
+<!-- create checkboxes to let the users chose the find period -->
+<form action="/finds/filter" method="post">
+    <input type="checkbox" name="find" value="BRONZE">Bronze</input>
+    <input type="checkbox" name="find" value="IRON">Iron Age</input>
+    <input type="checkbox" name="find" value="MESOLITHIC">Mesolithic</input>
+    <input type="checkbox" name="find" value="RECENT">Recent</input>
+  <input class="smallButton" type="submit" value="Go!">
+</form>
+<!--<form action="/finds" method="get">-->
+<!--  <input class="smallButton" type="submit" value="Reset">-->
+<!--</form>-->
+</table>
+</body>
+</html>

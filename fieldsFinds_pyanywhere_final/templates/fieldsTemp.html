@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- link to the JS file for sorting the tables -->
+<script type="text/javascript" src="/static/js/sort_table.js"></script>
+<!-- import the stylesheet for the table -->
+<link rel="stylesheet" type="text/css" href="/static/css/tables.css" />
+</head>
+
+<body>
+
+<!-- create a table, assign it to the id, classes and set characteristics -->
+<table id="sort" class='extra' style='width:89%;border:5px solid #778899;background-color:#E3EAF0; font-family:Helvetica; font-size:10px;text-align:left;color:black;border-collapse:collapse;'>
+
+<!-- define the table column headers -->
+<tr class="head">
+<th onclick="sortTable(0)">Field ID</th>
+<th onclick="sortTable(1)">Farmer Name</th>
+<th onclick="sortTable(2)">Field Area [ha]</th>
+<th> Field Coordinates</br>(LOWX - LOWY - HIX - HIY)</th>
+<th onclick="sortTable(4)">Crop Type</th>
+<th onclick="sortTable(5)">Start of Season</th>
+<th onclick="sortTable(6)">End of Season</th>
+</tr>
+
+<!-- pass the variable to the "fields.py" template -->
+{{fields|safe}}
+
+<!-- create checkboxes to let the users chose the crop type -->
+<form action="/fields/filter" method="post">
+    <input type="checkbox" name="field" value="PEAS">Peas</input>
+    <input type="checkbox" name="field" value="OIL SEED RAPE">Oil Seed Rape</input>
+    <input type="checkbox" name="field" value="POTATOES">Potatoes</input>
+    <input type="checkbox" name="field" value="STRAWBERRIES">Strawberries</input>
+    <input type="checkbox" name="field" value="TURNIPS">Turnips</input>
+  <input class="smallButton" type="submit" value="Go!">
+</form>
+<!--<form action="/fields" method="get">-->
+<!--  <input class="smallButton" type="submit" value="Reset">-->
+<!--</form>-->
+</table>
+</body>
+</html>
