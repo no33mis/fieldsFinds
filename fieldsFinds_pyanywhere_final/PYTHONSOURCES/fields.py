@@ -23,7 +23,7 @@ help of jinja2 templating
 def fieldsHtml(field):
 
     conn = mysql.connector.connect(
-        host= "no33mis.mysql.pythonanywhere-services.com", user="no33mis", password="dhsgt@672!", db="no33mis$fieldsFinds")
+        host= "xxx.mysql.pythonanywhere-services.com", user="xxx", password="xxx", db="xxx")
     c = conn.cursor()
     # execute the joined table
     c.execute("SELECT * FROM FIELDS JOIN CROPS ON FIELDS.CROP = CROPS.CROP")
@@ -34,7 +34,7 @@ def fieldsHtml(field):
         input = "%' OR CROPS.NAME LIKE '%".join(field)
 
         conn = mysql.connector.connect(
-            host= "no33mis.mysql.pythonanywhere-services.com", user="no33mis", password="dhsgt@672!", db="no33mis$fieldsFinds")
+            host= "xxx.mysql.pythonanywhere-services.com", user="xxx", password="xxx", db="xxx")
         c = conn.cursor()
         c.execute(f"SELECT * FROM FIELDS JOIN CROPS ON FIELDS.CROP = CROPS.CROP WHERE CROPS.NAME LIKE '{input}'")
 
