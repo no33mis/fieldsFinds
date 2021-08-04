@@ -22,7 +22,7 @@ help of jinja2 templating
 
 def findsHtml(finds):
     conn = mysql.connector.connect(
-            host= "no33mis.mysql.pythonanywhere-services.com", user="no33mis", password="dhsgt@672!", db="no33mis$fieldsFinds")
+            host= "xxx.mysql.pythonanywhere-services.com", user="xxx", password="xxx", db="xxx")
     c = conn.cursor()
     # execute the joined table
     c.execute("SELECT * FROM FINDS JOIN CLASS ON FINDS.TYPE = CLASS.TYPE")
@@ -32,7 +32,7 @@ def findsHtml(finds):
         input = "%' OR CLASS.PERIOD LIKE '%".join(finds)
 
         conn = mysql.connector.connect(
-            host= "no33mis.mysql.pythonanywhere-services.com", user="no33mis", password="dhsgt@672!", db="no33mis$fieldsFinds")
+            host= "xxx.mysql.pythonanywhere-services.com", user="xxx", password="xxx", db="xxx")
         c = conn.cursor()
         c.execute(f"SELECT * FROM FINDS JOIN CLASS ON FINDS.TYPE = CLASS.TYPE WHERE CLASS.PERIOD LIKE '%{input}%'")
 
